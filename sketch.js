@@ -138,83 +138,95 @@ function draw() {
     panels[i].display();
   }
 
-  animate(highway, highwayIndex, 0, 0, 200, 200);
+  // animate(highway, highwayIndex, 0, 0, 200, 200);
 
-  animate(billboards, billboardsIndex, 250, 0, 200, 200);
+  // animate(billboards, billboardsIndex, 250, 0, 200, 200);
 
-  animate(traffic, trafficIndex, 500, 0, 200, 200);
+  // animate(traffic, trafficIndex, 500, 0, 200, 200);
 
-  animate(highwaySigns, highwaySignsIndex, 0, 300, width, 400);
+  // animate(highwaySigns, highwaySignsIndex, 0, 0, 200, 200);
 
-  animate(cross, crossIndex, 0, 800, 200, 200);
+  // animate(billboards, billboardsIndex, 0, 0, 200, 200);
 
-  animate(restStop, restStopIndex, 250, 800, 200, 200);
+  // animate(billboards, billboardsIndex, 0, 0, 200, 200);
 
-  animate(windmill, windmillIndex, 500, 800, 200, 200);
+  // animate(billboards, billboardsIndex, 0, 0, 200, 200);
 
 
 
   //image(earlAnim[earlIndex],0,0,earlW, earlW);
-  // image(highway[highwayIndex], 0, 0, 200, 200);
-  // highwayIndex++;
-  // if (highwayIndex === highway.length) {
-  //   highwayIndex = 1;
-  // }
+  image(highway[highwayIndex], 0, 0, 200, 200);
+  highwayIndex++;
+  if (highwayIndex === highway.length) {
+    highwayIndex = 1;
+  }
 
-  // image(billboards[billboardsIndex], 250, 0, 200, 200);
-  // billboardsIndex++;
-  // if (billboardsIndex === billboards.length) {
-  //   billboardsIndex = 1;
-  // }
+  image(billboards[billboardsIndex], 250, 0, 200, 200);
+  billboardsIndex++;
+  if (billboardsIndex === billboards.length) {
+    billboardsIndex = 1;
+  }
 
-  // image(traffic[trafficIndex], 500, 0, 200, 200);
-  // trafficIndex++;
-  // if (trafficIndex === traffic.length) {
-  //   trafficIndex = 1;
-  // }
+  image(traffic[trafficIndex], 500, 0, 200, 200);
+  trafficIndex++;
+  if (trafficIndex === traffic.length) {
+    trafficIndex = 1;
+  }
 
-  // image(highwaySigns[highwaySignsIndex], 0, 300, width, 400);
-  // highwaySignsIndex++;
-  // if (highwaySignsIndex === highwaySigns.length) {
-  //   highwaySignsIndex = 1;
-  // }
+  image(highwaySigns[highwaySignsIndex], 0, 300, width, 400);
+  highwaySignsIndex++;
+  if (highwaySignsIndex === highwaySigns.length) {
+    highwaySignsIndex = 1;
+  }
 
-  // image(cross[crossIndex], 0, 800, 200, 200);
-  // crossIndex++;
-  // if (crossIndex === cross.length) {
-  //   crossIndex = 1;
-  // }
+  image(cross[crossIndex], 0, 800, 200, 200);
+  crossIndex++;
+  if (crossIndex === cross.length) {
+    crossIndex = 1;
+  }
 
-  // image(restStop[restStopIndex], 250, 800, 200, 200);
-  // restStopIndex++;
-  // if (restStopIndex === restStop.length) {
-  //   restStopIndex = 1;
-  // }
+  image(restStop[restStopIndex], 250, 800, 200, 200);
+  restStopIndex++;
+  if (restStopIndex === restStop.length) {
+    restStopIndex = 1;
+  }
 
-  // image(windmill[windmillIndex], 500, 800, 200, 200);
-  // windmillIndex++;
-  // if (windmillIndex === windmill.length) {
-  //   windmillIndex = 1;
-  // }
-}
-
-function animate(imageArray, index, x, y, w, h) {
-  if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-    image(imageArray[index], x, y, w, h);
-    updateIndex(imageArray, index);
-  } else {
-    image(imageArray[index], x, y, w, h);
+  image(windmill[windmillIndex], 500, 800, 200, 200);
+  windmillIndex++;
+  if (windmillIndex === windmill.length) {
+    windmillIndex = 1;
   }
 }
 
-function updateIndex(array, index) {
-  index++;
-  if (index === array.length) {
-    index = 1
-  }
-  console.log(index);
-  return index;
-}
+// function animate(imageArray, index, x, y, w, h) {
+//   if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+//     image(imageArray[index], x, y, w, h);
+//     updateIndex(imageArray, index);
+//   } else {
+//     image(imageArray[index], x, y, w, h);
+//   }
+// }
+
+// function updateIndex(array, index) {
+//   index++;
+//   if (index === array.length) {
+//     index = 1
+//   }
+//   console.log(index);
+//   return index;
+// }
+
+// function animate(imageArray, index, x, y, w, h) {
+//   if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+//     image(imageArray[index], x, y, w, h);
+//     index++;
+//     if (index === imageArray.length) {
+//       index = 1
+//     }
+//   } else {
+//     image(imageArray[index], x, y, w, h);
+//   }
+// }
 
 class Panel {
   constructor(w, h, x, y) {

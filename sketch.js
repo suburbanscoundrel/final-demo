@@ -6,6 +6,7 @@ let traffic = [];
 let restStop = [];
 let cross = [];
 let highwaySigns = [];
+let windmill = [];
 
 let highwayIndex = 1;
 let billboardsIndex = 1;
@@ -13,11 +14,13 @@ let trafficIndex = 1;
 let restStopIndex = 1;
 let crossIndex = 1;
 let highwaySignsIndex = 1;
+let windmillIndex = 1;
 
 let panels = [];
 
 let gutter = 10;
 
+let choices = [1, 2];
 let layout = 1;
 
 let fr = 10;
@@ -45,6 +48,10 @@ function preload() {
 
   for (i = 1; i < 5; i++) {
     traffic[i] = loadImage('assets/traffic/' + nf(i, 1, 0) + '.jpeg');
+  }
+
+  for (i = 1; i < 5; i++) {
+    windmill[i] = loadImage('assets/windmill/' + nf(i, 1, 0) + '.jpeg');
   }
 }
 
@@ -126,33 +133,87 @@ function setup() {
 }
   
 function draw() {
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < panels.length; i++) {
     panels[i].drawPanel();
     panels[i].display();
   }
 
+  animate(highway, highwayIndex, 0, 0, 200, 200);
+
+  animate(billboards, billboardsIndex, 250, 0, 200, 200);
+
+  animate(traffic, trafficIndex, 500, 0, 200, 200);
+
+  animate(highwaySigns, highwaySignsIndex, 0, 300, width, 400);
+
+  animate(cross, crossIndex, 0, 800, 200, 200);
+
+  animate(restStop, restStopIndex, 250, 800, 200, 200);
+
+  animate(windmill, windmillIndex, 500, 800, 200, 200);
+
+
+
   //image(earlAnim[earlIndex],0,0,earlW, earlW);
-  image(highway[highwayIndex], 0, 0, 200, 200);
-  highwayIndex++;
-  if (highwayIndex === highway.length) {
-    highwayIndex = 1;
-  }
+  // image(highway[highwayIndex], 0, 0, 200, 200);
+  // highwayIndex++;
+  // if (highwayIndex === highway.length) {
+  //   highwayIndex = 1;
+  // }
 
-  image(billboards[billboardsIndex], 250, 0, 200, 200);
-  billboardsIndex++;
-  if (billboardsIndex === billboards.length) {
-    billboardsIndex = 1;
-  }
+  // image(billboards[billboardsIndex], 250, 0, 200, 200);
+  // billboardsIndex++;
+  // if (billboardsIndex === billboards.length) {
+  //   billboardsIndex = 1;
+  // }
 
-  image(traffic[trafficIndex], 500, 0, 200, 200);
-  trafficIndex++;
-  if (trafficIndex === traffic.length) {
-    trafficIndex = 1;
+  // image(traffic[trafficIndex], 500, 0, 200, 200);
+  // trafficIndex++;
+  // if (trafficIndex === traffic.length) {
+  //   trafficIndex = 1;
+  // }
+
+  // image(highwaySigns[highwaySignsIndex], 0, 300, width, 400);
+  // highwaySignsIndex++;
+  // if (highwaySignsIndex === highwaySigns.length) {
+  //   highwaySignsIndex = 1;
+  // }
+
+  // image(cross[crossIndex], 0, 800, 200, 200);
+  // crossIndex++;
+  // if (crossIndex === cross.length) {
+  //   crossIndex = 1;
+  // }
+
+  // image(restStop[restStopIndex], 250, 800, 200, 200);
+  // restStopIndex++;
+  // if (restStopIndex === restStop.length) {
+  //   restStopIndex = 1;
+  // }
+
+  // image(windmill[windmillIndex], 500, 800, 200, 200);
+  // windmillIndex++;
+  // if (windmillIndex === windmill.length) {
+  //   windmillIndex = 1;
+  // }
+}
+
+function animate(imageArray, index, x, y, w, h) {
+  if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+    image(imageArray[index], x, y, w, h);
+    updateIndex(imageArray, index);
+  } else {
+    image(imageArray[index], x, y, w, h);
   }
 }
 
-function animate() {
-
+function updateIndex(array, index) {
+  index++;
+  if (index === array.length) {
+    index = 1
+  }
+  console.log(index);
+  return index;
 }
 
 class Panel {
